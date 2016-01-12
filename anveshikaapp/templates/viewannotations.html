@@ -1,0 +1,40 @@
+{% extends "base.html"%}
+
+{%block content %}
+
+
+
+<h4><b>ANNOTATION TABLE :</b></h4>
+<table class="table table-bordered">
+<tr >
+ <thead>
+  <th>Allele</th>
+  <th>Annotation </th>
+  <th>Impact </th>
+  <th>Gene Name</th>
+  <th>Gene Id</th>
+  <th>FeatureType</th>
+  <th>FeatureId</th>
+  <th>Transcript</th>
+  <th>Rank</th>
+  <th>Hgvs.c</th>
+  <th>Hgvs.p</th>
+  <th>CdnaLength</th>
+  <th>CDSLength</th>
+  <th>AALength</th>
+  <th>Distance</th>
+</tr>
+</thead>
+{% for element in annotations %}
+<tr>
+{% for element1 in element %}
+<td>{{element1}}</td>
+{%endfor%}
+
+</tr>
+{%endfor%}
+
+
+</table>
+
+{%endblock%}

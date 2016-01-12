@@ -1,0 +1,31 @@
+{% extends "base.html"%}
+
+{%block content %}
+
+<h4><b>SAMPLE TABLE :</b></h4>
+<table class="table table-bordered">
+<tr >
+ <thead>
+  <th>Position</th>
+  <th>Sample</th>
+  <th>Genotype</th>
+  <th>Allelic Depth </th>
+  <th>Read Depth </th>
+  <th>Genotype Quality</th>
+  <th>PL</th>
+
+</tr>
+</thead>
+{% for element in samples %}
+<tr>
+{% for element1 in element %}
+<td>{{element1}}</td>
+{%endfor%}
+
+</tr>
+{%endfor%}
+
+
+</table>
+
+{%endblock%}

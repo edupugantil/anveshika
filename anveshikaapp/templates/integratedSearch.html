@@ -1,0 +1,67 @@
+{%extends "base.html" %}
+
+{%block content %}
+<!--<div style="padding:40px;margin:40px;border:1px solid #ccc">
+	<h1>Enter Sample And Experiment</h1>
+	<form method='post' action='/psesearchresult/'>
+	<div class="form-group">
+		{% csrf_token %} {{form}} 
+		Position: <input type="text" name="position"/>
+		Sample: <input type="text" name="sample"/>
+		Experiment: <input type="text" name="experiment"/>
+		<input type="submit" class="btn btn-info" value="Search"/>
+	</div>	-->
+<div style="padding:40px;margin:40px;border:1px solid #ccc">
+	<h1>Select values to Proceed</h1>
+	<form method='post' action='/psesearchresult/'>	
+	<div class="form-group" class="row">
+		{% csrf_token %} {{form}} 
+		
+		
+<b>Experiment :</b>
+<select name="experiment">
+  <option value="-">SELECT</option>
+{% for entry in experiments %}
+    <option value="{{ entry.experiment_name }}">{{ entry.experiment_name }}</option>
+{% endfor %}
+</select>
+<b>Chromosomes :</b>
+<select name="chromo">
+  <option value="-">SELECT</option>
+{% for entry in chromosomes %}
+    <option value="{{ entry.chromosome }}">{{ entry.chromosome }}</option>
+{% endfor %}
+</select>
+<b>Pos Start :</b>
+<select name="position1">
+<option value="-">SELECT</option>
+{% for entry in positions %}
+    <option value="{{ entry.pos }}">{{ entry.pos }}</option>
+{% endfor %}
+</select>
+<b>Pos End :</b>
+<select name="position2">
+<option value="-">SELECT</option>
+{% for entry in positions %}
+    <option value="{{ entry.pos }}">{{ entry.pos }}</option>
+{% endfor %}
+</select>
+<b>Sample :</b>
+<select name="sample">
+<option value="-">SELECT</option>
+{% for entry in samples %}
+    <option value="{{ entry.sampleId }}">{{ entry.sampleId }}</option>
+{% endfor %}
+</select>
+<b>Annotation Impact :</b>
+<select name="annotation">
+<option value="-">SELECT</option>
+{% for entry in annotations %}
+    <option value="{{ entry.annotation_impact }}">{{ entry.annotation_impact }}</option>
+{% endfor %}
+</select>
+<input type="submit" class="btn btn-info" value="Search"/>
+	</form>
+	</div>
+		</div>	
+{%endblock%}

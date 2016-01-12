@@ -1,0 +1,17 @@
+{%extends "base.html" %}
+
+{%block content %}
+
+{%if msg %}
+<div style='background-color:red; color: white'>{{msg}}</div>
+{%endif%}
+
+<form method='POST' action='{%url 'anveshikaapp.views.login_user' %}'>
+{%csrf_token%}
+<div align="center"><b>Username:</b> <input type='text' name='username'/><br><br></div>
+<div align="center"><b>Password:</b> <input type='password' name='password'/><br><br></div>
+
+<div align="center"><input type='submit' align="center" class="btn btn-success" value='Login' /></div>
+</form>
+
+{%endblock%}

@@ -1,0 +1,73 @@
+{% extends "base.html"%}
+
+{%block content %}
+
+<h4 ><b>TSTALLVARIANTS TABLE :</b></h4>
+<table class="table table-bordered">
+<tr>
+ <thead background-color: blue>
+  <th>Sample</th>
+  <th>Transitions </th>
+  <th>Transversions </th>
+  <th>TSTV</th>
+  
+</tr>
+</thead>
+{% for element in results %}
+<tr>
+{% for element1 in element %}
+<td>{{element1}}</td>
+{%endfor%}
+
+</tr>
+{%endfor%}
+
+
+</table>
+
+<h4><b>TSTKNOWNVARIANTS TABLE :</b></h4>
+<table class="table table-bordered">
+<tr >
+ <thead>
+  <th>Sample</th>
+  <th>Transitions </th>
+  <th>Transversions </th>
+  <th>TSTV</th>
+  <th>Details</th>
+</tr>
+</thead>
+{% for element in knownvariants %}
+<tr>
+{% for element1 in element %}
+<td>{{element1}}</td>
+{%endfor%}
+
+</tr>
+{%endfor%}
+
+
+</table>
+
+<h4><b>HOMHETRATIO TABLE :</b></h4>
+<table class="table table-bordered">
+<tr >
+ <thead>
+  <th>Sample</th>
+  <th>Reference </th>
+  <th>Hom </th>
+  <th>Het</th>
+  <th>Missing</th>
+</tr>
+</thead>
+{% for element in HomHetRatio %}
+<tr>
+{% for element1 in element %}
+<td>{{element1}}</td>
+{%endfor%}
+
+</tr>
+{%endfor%}
+
+
+</table>
+{%endblock%}

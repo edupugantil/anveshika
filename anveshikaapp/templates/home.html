@@ -1,0 +1,22 @@
+{%extends "base.html" %}
+
+{%block content %}
+{%if msg %}
+<div style='text-align:center; background-color:LiteslateGray; color: Black'> <h3>{{msg}}</h3> </div>
+{%endif%}
+<div style="padding:40px;margin:40px;border:1px solid #ccc">
+	<h1>Upload VCF File</h1><br>
+	<form action="#"method="post" enctype="multipart/form-data">
+	{% csrf_token %} {{form.as_p}} 
+	<div class="form-group">
+	<input type="submit" class="btn btn-info" value="Upload"><br>
+	</div>		
+	</form>
+	
+	{% for img in images %}
+		{{forloop.counter}}.<a href="{{ img.pic.url }}">{{ img.pic.name }}</a>
+		({{img.upload_date}})<hr />
+	{% endfor %}
+</div>
+
+{%endblock%}

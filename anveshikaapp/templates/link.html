@@ -1,0 +1,95 @@
+{% extends "base.html"%}
+
+{%block content %}
+
+<h4><b>POSITION TABLE :</b></h4>
+<table class="table table-bordered">
+<tr >
+ <thead>
+  <th>Position</th>
+  <th>Chromosome </th>
+  <th>RsID </th>
+  <th>Ref Allele</th>
+  <th>Alt Allele</th>
+  <th>Quality</th>
+  <th>Filter</th>
+  <th>Allele Count</th>
+  <th>Allele Freq</th>
+  <th>Total no of alleles</th>
+  <th>Samples</th>
+  <th>Annotations</th>
+</tr>
+</thead>
+{% for element in positions %}
+<tr>
+{% for element1 in element %}
+<td>{{element1}}</td>
+{%endfor%}
+<td><a href="{% url 'anveshikaapp.views.viewsamples'%}?positionId={{element.0}}">View Samples</a></td>
+<td><a href="{% url 'anveshikaapp.views.viewannotations'%}?positionId={{element.0}}">View Annotations</a></td>
+</tr>
+{%endfor%}
+
+
+</table>
+<!--
+<h4><b>ANNOTATION TABLE :</b></h4>
+<table class="table table-bordered">
+<tr >
+ <thead>
+  <th>Allele</th>
+  <th>Annotation </th>
+  <th>Impact </th>
+  <th>Gene Name</th>
+  <th>Gene Id</th>
+  <th>FeatureType</th>
+  <th>FeatureId</th>
+  <th>Transcript</th>
+  <th>Rank</th>
+  <th>Hgvs.c</th>
+  <th>Hgvs.p</th>
+  <th>CdnaLength</th>
+  <th>CDSLength</th>
+  <th>AALength</th>
+  <th>Distance</th>
+</tr>
+</thead>
+{% for element in annotations %}
+<tr>
+{% for element1 in element %}
+<td>{{element1}}</td>
+{%endfor%}
+
+</tr>
+{%endfor%}
+
+
+</table>
+
+<h4><b>SAMPLE TABLE :</b></h4>
+<table class="table table-bordered">
+<tr >
+ <thead>
+  <th>Position</th>
+  <th>Sample</th>
+  <th>Genotype</th>
+  <th>Allelic Depth </th>
+  <th>Read Depth </th>
+  <th>Genotype Quality</th>
+  <th>PL</th>
+
+</tr>
+</thead>
+{% for element in samples %}
+<tr>
+{% for element1 in element %}
+<td>{{element1}}</td>
+{%endfor%}
+
+</tr>
+{%endfor%}
+
+
+</table>
+-->
+{%endblock%}

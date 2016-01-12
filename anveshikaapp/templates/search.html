@@ -1,0 +1,14 @@
+{%extends "base.html" %}
+
+{%block content %}
+<div style="padding:40px;margin:40px;border:1px solid #ccc">
+	<h1>Enter Sample And Experiment</h1>
+	<form method='post' action='/searchresult/'>
+	<div class="form-group">
+		{% csrf_token %} {{form}} 
+		<input type="text" name="sample"/>
+		<input type="submit" class="btn btn-info" value="Search"/>
+	</div>		
+	</form>
+	</div>
+{%endblock%}

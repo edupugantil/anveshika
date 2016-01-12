@@ -1,0 +1,36 @@
+{% extends "base.html"%}
+
+{%block content %}
+
+<h4><b>POSITION TABLE :</b></h4>
+<table class="table table-bordered">
+<tr >
+ <thead>
+  <th>Position</th>
+  <th>Chromosome </th>
+  <th>RsID </th>
+  <th>Ref Allele</th>
+  <th>Alt Allele</th>
+  <th>Quality</th>
+  <th>Filter</th>
+  <th>Allele Count</th>
+  <th>Allele Freq</th>
+  <th>Total Alleles</th>
+  <th>Sample</th>
+  <th>Annotation</th>
+  <th>SampleDetails</th>
+  <th>AnnotationDetails</th>
+</tr>
+</thead>
+{% for element in positions %}
+<tr>
+{% for element1 in element %}
+<td>{{element1}}</td>
+{%endfor%}
+<td><a href="{% url 'anveshikaapp.views.viewsampledata'%}?positionId={{element.10}}">View Sample</a></td>
+<td><a href="{% url 'anveshikaapp.views.viewannotationdata'%}?positionId={{element.11}}">View Annotation</a></td>
+</tr>
+{%endfor%}
+</table>
+
+{%endblock%}
